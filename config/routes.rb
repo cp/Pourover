@@ -1,4 +1,7 @@
 CoffeeTracker::Application.routes.draw do
+  resources :consumptions
+
+
   devise_for :users
 
   root :to => 'static#index'
