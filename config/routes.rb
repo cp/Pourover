@@ -1,4 +1,4 @@
-CoffeeTracker::Application.routes.draw do
+Pourover::Application.routes.draw do
   resources :consumptions
 
 

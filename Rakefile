@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-CoffeeTracker::Application.load_tasks
+Pourover::Application.load_tasks

@@ -1,4 +1,4 @@
-CoffeeTracker
+Pourover
 ===
 
-CoffeeTracker tracks your coffee consumption.
+Pourover tracks your coffee consumption.

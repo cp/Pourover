@@ -25,6 +25,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions/new.json
   def new
     @consumption = Consumption.new
+    @drinks = Drink.last(5).map { |d| [d.name, d.id.to_s ] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,10 +42,12 @@ class ConsumptionsController < ApplicationController
   # POST /consumptions.json
   def create
     @consumption = Consumption.new(params[:consumption])
+    @consumption.drink_id = params[:drink_id].to_i
+    @consumption.user_id = current_user.id
 
     respond_to do |format|
       if @consumption.save
-        format.html { redirect_to @consumption, notice: 'Consumption was successfully created.' }
+        format.html { redirect_to @consumption, notice: 'Saved!' }
         format.json { render json: @consumption, status: :created, location: @consumption }
       else
         format.html { render action: "new" }
