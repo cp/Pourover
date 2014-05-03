@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :when %>
-    <%= f.datetime_select :consumed_at %>
+    <%= f.datetime_select :consumed_at, default: Time.now %>
   </div>
   <div class="field">
     <%= f.label :image_url, 'Image' %>

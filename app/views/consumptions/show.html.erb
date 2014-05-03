@@ -1,4 +1,6 @@
-<strong><%= @consumption.drink.name %>, <%= time_ago_in_words @consumption.consumed_at %> ago.</strong>
+<p><strong><%= @consumption.drink.name %>, <%= time_ago_in_words @consumption.consumed_at %> ago, <%= @consumption.consumed_at.strftime('%b %e %Y %H:%m %p') %>.</strong></p>
+
+Recorded: <%= @consumption.created_at.strftime('%b %e %Y %H:%m %p') %>
 <br>
 <%= filepicker_image_tag(@consumption.image_url, w: 320) unless @consumption.image_url.empty? %>
 

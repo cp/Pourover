@@ -11,7 +11,7 @@
     <% @consumptions.each do |consumption| %>
       <tr>
         <td><%= consumption.drink.name %></td>
-        <td><%= time_ago_in_words consumption.consumed_at %> ago</td>
+        <td><%= consumption.consumed_at.strftime('%b %e %Y %H:%m %p') %></td>
         <td><%= link_to 'View', consumption %></td>
       </tr>
     <% end %>
