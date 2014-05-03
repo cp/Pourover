@@ -32,15 +32,23 @@
     <table class="table">
       <tr>
         <td><strong>Recorded Consumptions:</strong></td>
-        <td><%= current_user.consumptions.count %></td>
+        <td><%= @consumptions.count %></td>
+      </tr>
+      <tr>
+        <td><strong>Consumptions today:</strong></td>
+        <td><%= @consumptions.where('consumed_at >= ?', Time.zone.now.beginning_of_day).count %></td>
       </tr>
       <tr>
         <td><strong>Consumptions this month:</strong></td>
-        <td>TODO</td>
+        <td><%= @consumptions.where('consumed_at >= ?', 1.month.ago).count %></td>
       </tr>
       <tr>
         <td><strong>Consumptions this week:</strong></td>
-        <td>TODO</td>
+        <td><%= @consumptions.where('consumed_at >= ?', 1.week.ago).count %></td>
+      </tr>
+      <tr>
+        <td><strong>Caffeine today (mg):</strong></td>
+        <td><%= caffeine(@consumptions) %></td>
       </tr>
     </table>
   </div>
