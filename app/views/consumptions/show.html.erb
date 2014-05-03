@@ -1,4 +1,6 @@
 <strong><%= @consumption.drink.name %>, <%= time_ago_in_words @consumption.consumed_at %> ago.</strong>
+<br>
+<%= filepicker_image_tag(@consumption.image_url, w: 320) if @consumption.image_url %>
 
 <br>
 <%= link_to 'Edit', edit_consumption_path(@consumption) %>

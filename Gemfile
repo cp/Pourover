@@ -12,6 +12,9 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+gem 'filepicker-rails'
+gem 'dotenv'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
