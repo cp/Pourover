@@ -1,0 +1,20 @@
+<div class="panel panel-default heatmap">
+  <div class="panel-heading">Heatmap</div>
+  <div class="panel-body">
+    <div id="cal-heatmap"></div>
+    <script type="text/javascript">
+      var cal = new CalHeatMap();
+      cal.init({
+        domain: "month",
+        subDomain: "x_day",
+        range: 6,
+        start: new Date(new Date().setDate(new Date().getDate()-110)),
+        cellSize: 17,
+        domainGutter: 20,
+        legend: [2, 4, 8, 10],
+        itemName: ["coffee consumption", "coffee consumptions"],
+        data: "/api/consumptions/heatmap"
+      });
+    </script>
+  </div>
+</div>

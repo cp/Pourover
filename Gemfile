@@ -12,7 +12,11 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+# External Services
+gem 'geocoder'
 gem 'filepicker-rails'
+
+# Configuration Management
 gem 'dotenv'
 
 # Gems used only for assets and not required

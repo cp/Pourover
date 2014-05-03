@@ -21,3 +21,22 @@
 div.actions .btn {
   margin-top: 20px;
 }
+
+div.stats {
+  width: 49%;
+}
+
+div.map {
+  width: 49%;
+  float: right;
+}
+
+svg.cal-heatmap-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  margin-bottom: 20px;
+}

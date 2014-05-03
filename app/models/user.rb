@@ -13,4 +13,9 @@ class User < ActiveRecord::Base
     name.split(' ').first
   end
 
+  # lol
+  def heatmap?
+    email == 'colby@aley.me'
+  end
+
 end

@@ -5,4 +5,5 @@ Pourover::Application.routes.draw do
 
   root :to => 'consumptions#index'
   get '/preferences', to: 'static#preferences'
+  get '/api/consumptions/heatmap', to: 'consumptions#heatmap'
 end

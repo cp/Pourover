@@ -4,7 +4,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions
   # GET /consumptions.json
   def index
-    @consumptions = current_user.consumptions
+    @consumptions = current_user.consumptions.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,6 +21,17 @@ class ConsumptionsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @consumption }
     end
+  end
+
+  def heatmap
+    hash = Hash.new
+    consumptions = current_user.consumptions
+    (1.year.ago.to_date).upto(Date.today).each do |date|
+      count = consumptions.select{|c| c.consumed_at.to_date == date }.size
+      hash.merge!(date.to_time.utc.to_i => count)
+    end
+
+    render json: hash
   end
 
   # GET /consumptions/new

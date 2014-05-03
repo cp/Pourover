@@ -1,12 +1,10 @@
-<h1>Consumptions</h1>
-
 <div class="panel panel-default">
-  <div class="panel-heading">Your consumption log</div>
+  <div class="panel-heading">Consumption Log</div>
   <div class="panel-body">
     <table class="table">
       <tr>
         <th>Drink</th>
-        <th>Consumed at</th>
+        <th>Consumed</th>
         <th></th>
       </tr>
 
@@ -20,3 +18,33 @@
     </table>
   </div>
 </div>
+
+<div class="panel panel-default map">
+  <div class="panel-heading">Map</div>
+  <div class="panel-body">
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16" %>
+  </div>
+</div>
+
+<div class="panel panel-default stats">
+  <div class="panel-heading">Stats</div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <td><strong>Recorded Consumptions:</strong></td>
+        <td><%= current_user.consumptions.count %></td>
+      </tr>
+      <tr>
+        <td><strong>Consumptions this month:</strong></td>
+        <td>TODO</td>
+      </tr>
+      <tr>
+        <td><strong>Consumptions this week:</strong></td>
+        <td>TODO</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<%= render 'heatmap' if current_user.heatmap? %>
+<br>
