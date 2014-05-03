@@ -12,6 +12,28 @@
  *= require_tree .
  */
 
+// http://www.colourlovers.com/palette/3309464/Rebecca_Kling_2
+$color1: #FF3D7F;
+$color2: #FF9E9D;
+$color3: #BE80FF;
+$color4: #7FC7AF;
+$color5: #3FB8AF;
+
+$link-color: $color3;
+
+// Buttons
+$btn-default-bg: darken($color4, 5%);
+$btn-default-border: darken($btn-default-bg, 5%);
+$btn-default-color: #FFF;
+
+// Navbar
+$navbar-default-bg: $color4;
+$navbar-default-link-color: #FFF;
+$navbar-brand-hover-color: #FFF;
+
+// Panels
+$panel-bg: rgba(127, 199, 175, 0.02);
+
 @import "bootstrap";
 
 .container.page {

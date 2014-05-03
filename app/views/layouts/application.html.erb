@@ -19,9 +19,9 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-            <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Record Consumption', new_consumption_path %></button></li>
+            <li><%= button_to 'Record Consumption', new_consumption_path, method: :get, type: 'button', class: 'btn btn-default navbar-btn' %></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.short_name %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Preferences', preferences_path %></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
