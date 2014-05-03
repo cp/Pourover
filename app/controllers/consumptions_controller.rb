@@ -1,8 +1,10 @@
 class ConsumptionsController < ApplicationController
+  before_filter :authenticate
+
   # GET /consumptions
   # GET /consumptions.json
   def index
-    @consumptions = Consumption.all
+    @consumptions = current_user.consumptions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +27,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions/new.json
   def new
     @consumption = Consumption.new
-    @drinks = Drink.last(5).map { |d| [d.name, d.id.to_s ] }
+    @drinks = Drink.all.map { |d| [d.name, d.id.to_s ] }
 
     respond_to do |format|
       format.html # new.html.erb

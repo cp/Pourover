@@ -1,20 +1,4 @@
-<p id="notice"><%= notice %></p>
+<strong><%= @consumption.drink.name %>, <%= time_ago_in_words @consumption.consumed_at %> ago.</strong>
 
-<p>
-  <b>Drink:</b>
-  <%= @consumption.drink_id %>
-</p>
-
-<p>
-  <b>Consumed at:</b>
-  <%= @consumption.consumed_at %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @consumption.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_consumption_path(@consumption) %> |
-<%= link_to 'Back', consumptions_path %>
+<br>
+<%= link_to 'Edit', edit_consumption_path(@consumption) %>

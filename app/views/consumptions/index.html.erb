@@ -1,27 +1,22 @@
-<h1>Listing consumptions</h1>
+<h1>Consumptions</h1>
 
-<table>
-  <tr>
-    <th>Drink</th>
-    <th>Consumed at</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="panel panel-default">
+  <div class="panel-heading">Your consumption log</div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>Drink</th>
+        <th>Consumed at</th>
+        <th></th>
+      </tr>
 
-<% @consumptions.each do |consumption| %>
-  <tr>
-    <td><%= consumption.drink_id %></td>
-    <td><%= consumption.consumed_at %></td>
-    <td><%= consumption.user_id %></td>
-    <td><%= link_to 'Show', consumption %></td>
-    <td><%= link_to 'Edit', edit_consumption_path(consumption) %></td>
-    <td><%= link_to 'Destroy', consumption, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Consumption', new_consumption_path %>
+    <% @consumptions.each do |consumption| %>
+      <tr>
+        <td><%= consumption.drink.name %></td>
+        <td><%= time_ago_in_words consumption.consumed_at %> ago</td>
+        <td><%= link_to 'View', consumption %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
