@@ -21,6 +21,8 @@ $color5: #3FB8AF;
 
 $link-color: $color3;
 
+$grid-float-breakpoint: 300px;
+
 // Buttons
 $btn-default-bg: darken($color4, 5%);
 $btn-default-border: darken($btn-default-bg, 5%);
@@ -53,6 +55,15 @@ div.actions .btn {
 
 div.home.stats {
   width: 49%;
+  height: 393px;
+}
+
+img.map {
+  height: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 98%;
 }
 
 div.home.map {
@@ -68,4 +79,17 @@ svg.cal-heatmap-container {
 
 footer {
   margin-bottom: 20px;
+}
+
+// @media queries
+@media (max-width: 700px) {
+  div.home.map {
+    width: 100%;
+    float: middle;
+  }
+
+  div.home.stats {
+    width: 100%;
+    float: middle;
+  }
 }

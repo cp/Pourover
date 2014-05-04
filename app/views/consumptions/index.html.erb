@@ -28,7 +28,11 @@
 <div class="panel panel-default home map">
   <div class="panel-heading">Map</div>
   <div class="panel-body">
-    <%= image_tag map_url(@consumptions) %>
+    <% if Consumption.all.map(&:geocoded?).include?(true) %>
+      <%= image_tag map_url(@consumptions), class: 'map' %>
+    <% else %>
+      Add a location to one of your recordings!
+    <% end %>
   </div>
 </div>
 
