@@ -20,6 +20,10 @@
     <%= f.datetime_select :consumed_at, default: Time.now %>
   </div>
   <div class="field">
+    <%= f.label :street_address %>
+    <%= f.text_field :street_address %>
+  </div>
+  <div class="field">
     <%= f.label :image_url, 'Image' %>
     <%= f.filepicker_field :image_url, class: 'btn btn-default' %>
   </div>

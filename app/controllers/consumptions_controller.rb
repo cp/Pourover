@@ -5,6 +5,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions.json
   def index
     @consumptions = current_user.consumptions.order('created_at DESC')
+    @today        = @consumptions.where('consumed_at >= ?', Time.zone.now.beginning_of_day)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -11,15 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140503010208) do
+ActiveRecord::Schema.define(:version => 20140504073619) do
 
   create_table "consumptions", :force => true do |t|
     t.integer  "drink_id"
     t.datetime "consumed_at"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "image_url"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "street_address"
   end
 
   create_table "drinks", :force => true do |t|

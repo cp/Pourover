@@ -1,32 +1,38 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Consumption Log</div>
+  <div class="panel-heading">Log</div>
   <div class="panel-body">
     <table class="table">
       <tr>
         <th>Drink</th>
         <th>Consumed</th>
+        <th>Caffeine</th>
+        <th></th>
         <th></th>
       </tr>
 
     <% @consumptions.each do |consumption| %>
       <tr>
         <td><%= consumption.drink.name %></td>
-        <td><%= consumption.consumed_at.strftime('%b %e %Y %H:%m %p') %></td>
+        <td><%= consumption.consumed_at.strftime('%b %e %Y %H:%M %p') %></td>
+        <td><%= consumption.drink.caffeine %> mg</td>
         <td><%= link_to 'View', consumption %></td>
+        <td><%= image_tag 'camera.svg', class: 'light-icon', 'data-toggle' => :tooltip, title: 'This consumption has a photo.' unless consumption.image_url.empty? %>
+            <%= image_tag 'map.svg', class: 'light-icon', 'data-toggle' => :tooltip, title: 'This consumption has a location.' if consumption.geocoded? %>
+        </td>
       </tr>
     <% end %>
     </table>
   </div>
 </div>
 
-<div class="panel panel-default map">
+<div class="panel panel-default home map">
   <div class="panel-heading">Map</div>
   <div class="panel-body">
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16" %>
+    <%= image_tag map_url(@consumptions) %>
   </div>
 </div>
 
-<div class="panel panel-default stats">
+<div class="panel panel-default home stats">
   <div class="panel-heading">Stats</div>
   <div class="panel-body">
     <table class="table">
@@ -36,7 +42,7 @@
       </tr>
       <tr>
         <td><strong>Consumptions today:</strong></td>
-        <td><%= @consumptions.where('consumed_at >= ?', Time.zone.now.beginning_of_day).count %></td>
+        <td><%= @today.count %></td>
       </tr>
       <tr>
         <td><strong>Consumptions this month:</strong></td>
@@ -48,7 +54,7 @@
       </tr>
       <tr>
         <td><strong>Caffeine today (mg):</strong></td>
-        <td><%= caffeine(@consumptions) %></td>
+        <td><%= caffeine(@today) %></td>
       </tr>
     </table>
   </div>

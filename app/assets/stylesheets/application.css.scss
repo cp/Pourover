@@ -36,6 +36,13 @@ $panel-bg: rgba(127, 199, 175, 0.02);
 
 @import "bootstrap";
 
+img.light-icon {
+  opacity: 0.3;
+  height: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .container.page {
   margin-top: 60px;
 }
@@ -44,11 +51,11 @@ div.actions .btn {
   margin-top: 20px;
 }
 
-div.stats {
+div.home.stats {
   width: 49%;
 }
 
-div.map {
+div.home.map {
   width: 49%;
   float: right;
 }
