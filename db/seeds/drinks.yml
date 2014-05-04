@@ -1,8 +1,16 @@
 ---
 -
+  name: cappuccino 8oz
+  caffeine: 80
+-
+  name: Latte 12oz
+  caffeine: 100
+-
   name: cappuccino 12oz
   caffeine: 100
 -
-  name: Mocha 12oz
-  caffeine: 100
-
+  name: black tea 12oz
+  caffeine: 44
+-
+  name: drip coffee 8oz
+  caffeine: 95
