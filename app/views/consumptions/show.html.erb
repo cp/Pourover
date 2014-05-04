@@ -4,7 +4,7 @@ Recorded: <%= @consumption.created_at.strftime('%b %e %Y %H:%M %p') %>
 <br>
 <%= filepicker_image_tag(@consumption.image_url, w: 320) unless @consumption.image_url.empty? %>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=18&center=#{@consumption.latitude},#{@consumption.longitude}&markers=#{@consumption.latitude},#{@consumption.longitude}" %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=18&center=#{@consumption.latitude},#{@consumption.longitude}&markers=#{@consumption.latitude},#{@consumption.longitude}" if @consumption.geocoded? %>
 
 <br>
 <%= link_to 'Edit', edit_consumption_path(@consumption) %>

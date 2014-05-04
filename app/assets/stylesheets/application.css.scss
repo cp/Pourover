@@ -81,6 +81,10 @@ footer {
   margin-bottom: 20px;
 }
 
+table.form-table td {
+  margin-bottom: 20px;
+}
+
 // @media queries
 @media (max-width: 700px) {
   div.home.map {
@@ -91,5 +95,9 @@ footer {
   div.home.stats {
     width: 100%;
     float: middle;
+  }
+
+  .btn-default.save {
+    width: 100%;
   }
 }

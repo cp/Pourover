@@ -11,24 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :drink %>
-    <%= select_tag :drink_id, options_for_select(@drinks), prompt: 'Select a drink' %>
-  </div>
-  <div class="field">
-    <%= f.label :when %>
-    <%= f.datetime_select :consumed_at, default: Time.now %>
-  </div>
-  <div class="field">
-    <%= f.label :street_address %>
-    <%= f.text_field :street_address %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url, 'Image' %>
-    <%= f.filepicker_field :image_url, class: 'btn btn-default' %>
-  </div>
+  <table class="form-table">
+    <tr>
+      <td><%= f.label :drink %></td>
+      <td><%= select_tag :drink_id, options_for_select(@drinks, selected: @default_drink), prompt: 'Select a drink' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :when %></td>
+      <td><%= f.datetime_select :consumed_at, default: Time.now %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :street_address %></td>
+      <td><%= f.text_field :street_address %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :image_url, 'Image' %></td>
+      <td><%= f.filepicker_field :image_url, class: 'btn btn-default' %></td>
+    </tr>
+  </table>
   <div class="actions">
-    <%= f.submit class: 'btn btn-success', value: 'Save' %>
+    <%= f.submit class: 'btn btn-default save', value: 'Save' %>
   </div>
+</table>
 
 <% end %>

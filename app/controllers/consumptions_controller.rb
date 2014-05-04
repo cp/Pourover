@@ -17,6 +17,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions/1.json
   def show
     @consumption = Consumption.find(params[:id])
+    redirect_to root_path unless @consumption.user_id == current_user.id
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,6 +41,7 @@ class ConsumptionsController < ApplicationController
   def new
     @consumption = Consumption.new
     @drinks = Drink.all.map { |d| [d.name, d.id.to_s ] }
+    @default_drink = 0
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,6 +52,8 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions/1/edit
   def edit
     @consumption = Consumption.find(params[:id])
+    @drinks = Drink.all.map { |d| [d.name, d.id.to_s ] }
+    @default_drink = @consumption.drink.id
   end
 
   # POST /consumptions
