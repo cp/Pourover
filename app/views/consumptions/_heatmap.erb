@@ -5,12 +5,10 @@
     <script type="text/javascript">
       var cal = new CalHeatMap();
       cal.init({
-        domain: "month",
-        subDomain: "x_day",
-        range: 6,
-        start: new Date(new Date().setDate(new Date().getDate()-110)),
-        cellSize: 17,
-        domainGutter: 20,
+        domain: "day",
+        range: 14,
+        start: new Date(new Date().setDate(new Date().getDate()-13)),
+        cellSize: 12,
         legend: [2, 4, 8, 10],
         itemName: ["coffee consumption", "coffee consumptions"],
         data: "/api/consumptions/heatmap"

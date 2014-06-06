@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
     name.split(' ').first
   end
 
-  # lol
+  # lol we'll hold this off till later
   def heatmap?
+    return false
     email == 'colby@aley.me'
   end
 

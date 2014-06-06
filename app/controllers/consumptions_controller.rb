@@ -28,7 +28,7 @@ class ConsumptionsController < ApplicationController
   def heatmap
     hash = Hash.new
     consumptions = current_user.consumptions
-    (1.year.ago.to_date).upto(Date.today).each do |date|
+    (14.days.ago.to_date).upto(Date.today).each do |date|
       count = consumptions.select{|c| c.consumed_at.to_date == date }.size
       hash.merge!(date.to_time.utc.to_i => count)
     end
